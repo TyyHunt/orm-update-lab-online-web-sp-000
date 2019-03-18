@@ -23,6 +23,14 @@ class Student
     DB[:conn].execute(sql)
   end
 
+  def save
+    new_student = self.new(id, name, grade)
+    new_student.id = row[0]
+    new_student.name = row[1]
+    new_student.grade = row[2]
+    new_student
+  end
+
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
 
